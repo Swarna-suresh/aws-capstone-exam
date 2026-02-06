@@ -1,0 +1,31 @@
+body {
+    background-color: lightgray;
+    font-family: Arial;
+    text-align: center;
+}
+
+ 
+app/db_check.php
+ 
+<?php
+$conn = new mysqli(
+  getenv('DB_HOST'),
+  getenv('DB_USER'),
+  getenv('DB_PASS'),
+  'mysql'
+);
+ 
+if ($conn->connect_error) {
+  echo "Database Connection Failed";
+} else {
+  echo "Database Connected Successfully";
+}
+?>
+
+ 
+terraform/provider.tf
+ 
+provider "aws" {
+  region = "us-east-1"
+}
+ 
